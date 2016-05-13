@@ -108,6 +108,9 @@ angular.module('cwill747.phonenumber', [])
           var isValidForRegion = false;
           try {
             isValidForRegion = $window.phoneUtils.isValidNumberForRegion(value, scope.countryCode);
+            if (! isValidForRegion ){
+              isValidForRegion = phoneUtils.isValidNumber(value)
+            }
           }
           catch (err) {
             $log.debug(err);
